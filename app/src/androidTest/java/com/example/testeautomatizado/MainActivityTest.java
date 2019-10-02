@@ -1,7 +1,5 @@
 package com.example.testeautomatizado;
 
-import android.app.Activity;
-
 import androidx.test.espresso.Espresso;
 import androidx.test.filters.LargeTest;
 import androidx.test.rule.ActivityTestRule;
@@ -14,7 +12,6 @@ import org.junit.runner.RunWith;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static org.junit.Assert.*;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
@@ -27,10 +24,22 @@ public class MainActivityTest {
     @Test
     public void testLogin(){
         Espresso.onView(withId(R.id.editTextUser))
-                .perform(typeText("email@teste.com"));
+                .perform(typeText("admin@admin"));
 
         Espresso.onView(withId(R.id.editTextPass))
-                .perform(typeText("123"));
+                .perform(typeText("administrador"));
+
+        Espresso.onView(withId(R.id.btnOk))
+                .perform(click());
+    }
+
+    @Test
+    public void testLogin2(){
+        Espresso.onView(withId(R.id.editTextUser))
+                .perform(typeText("hthenrique@email.com"));
+
+        Espresso.onView(withId(R.id.editTextPass))
+                .perform(typeText("henrique"));
 
         Espresso.onView(withId(R.id.btnOk))
                 .perform(click());
@@ -59,5 +68,5 @@ public class MainActivityTest {
         Espresso.onView(withId(R.id.btnOk))
                 .perform(click());
     }
-    
+
 }

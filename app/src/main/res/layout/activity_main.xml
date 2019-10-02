@@ -41,21 +41,20 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Senha"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextUser" />
+        app:layout_constraintTop_toBottomOf="@+id/ErroEmail" />
 
     <TextView
         android:id="@+id/ErroSenha"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintEnd_toEndOf="@+id/editTextPass"
         app:layout_constraintStart_toStartOf="@+id/editTextPass"
         app:layout_constraintTop_toBottomOf="@+id/editTextPass" />
 

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Testes Automatizados</string>
+    <string name="char_errado">Caracteres invalidos</string>
+    <string name="senha_invalida">Minimo 6 caracteres</string>
 </resources>
