@@ -60,10 +60,22 @@ public class MainActivityTest {
     @Test
     public void testLoginFail2(){
         Espresso.onView(withId(R.id.editTextUser))
-                .perform(typeText(""));
+                .perform(typeText("admin@admin"));
 
         Espresso.onView(withId(R.id.editTextPass))
-                .perform(typeText(""));
+                .perform(typeText("henrique"));
+
+        Espresso.onView(withId(R.id.btnOk))
+                .perform(click());
+    }
+
+    @Test
+    public void testLoginFail3(){
+        Espresso.onView(withId(R.id.editTextUser))
+                .perform(typeText("hthenrique@email.com"));
+
+        Espresso.onView(withId(R.id.editTextPass))
+                .perform(typeText("Administrador"));
 
         Espresso.onView(withId(R.id.btnOk))
                 .perform(click());
