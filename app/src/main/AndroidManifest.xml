@@ -9,9 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdminActivity"></activity>
-        <activity android:name=".Main2Activity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".AdminActivity"
+            android:label="Tela Administrador"></activity>
+        <activity android:name=".Main2Activity"
+            android:label="Tela Usuário"/>
+        <activity android:name=".MainActivity"
+            android:label="Tela Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
