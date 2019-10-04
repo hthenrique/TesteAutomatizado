@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                         //Tela diferente para administradores
                         Intent welcomeAdmin = new Intent(getApplicationContext(), AdminActivity.class);
                         startActivity(welcomeAdmin);
+                        Toast.makeText(MainActivity.this, "Conta de Administrador", Toast.LENGTH_SHORT).show();
                     }else {
                         //Tela usuario normal
                         Intent welcome = new Intent(getApplicationContext(), Main2Activity.class);
@@ -66,6 +67,11 @@ public class MainActivity extends AppCompatActivity {
                     ErroSenha.setText(erro3);
                     Toast.makeText(MainActivity.this, "Verifique os campos", Toast.LENGTH_SHORT).show();
                 }
+                if (!editTextUser.getText().toString().equals("admin@admin") && !editTextUser.getText().toString().equals("hthenrique@email.com")){
+                    String erro1 = "Usuário e/ou senha incorretos";
+                    ErroSenha.setText(erro1);
+                    Toast.makeText(MainActivity.this, "Verifique os campos", Toast.LENGTH_SHORT).show();
+                }
                     //Minimo de caracteres na senha
                 if (editTextPass.getText().length() < 6){
                     editTextPass.setError(getString(R.string.senha_invalida));
@@ -73,17 +79,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        InputFilter filter = new InputFilter(){
-            //Caracteres perigosos proibidos
-            @Override
-            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
-                if (source.toString().contains("<" + ">" + "'" + "%" + "(" + ")" + "&" + "+"))
-                    return "";
-                else
-                    return null;
-            }
-        };
-        editTextPass.setFilters(new InputFilter[] {filter});
     }
 
 }
