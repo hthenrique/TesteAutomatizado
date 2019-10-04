@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
         final EditText editTextUser = findViewById(R.id.editTextUser);
         final EditText editTextPass = findViewById(R.id.editTextPass);
-        final TextView ErroEmail = findViewById(R.id.ErroEmail);
         final TextView ErroSenha = findViewById(R.id.ErroSenha);
 
         Button btnOk = findViewById(R.id.btnOk);
@@ -52,17 +51,19 @@ public class MainActivity extends AppCompatActivity {
                         Intent welcome = new Intent(getApplicationContext(), Main2Activity.class);
                         startActivity(welcome);
                     }
-                }else
-                    //usuario errado
-                    if (!editTextUser.getText().toString().equals("admin@admin") || !editTextUser.getText().toString().equals("hthenrique@emaiil.com")){
-                    String erro1 = "E-mail incorreto ou vazio";
-                    ErroEmail.setText(erro1);
+                }
+                    //Senha errada
+                if (editTextUser.getText().toString().equals("admin@admin") && !editTextPass.getText().toString().equals("administrador")
+                        || editTextUser.getText().toString().equals("hthenrique@email.com") && !editTextPass.getText().toString().equals("henrique")){
+                    String erro1 = "Usuário e/ou senha incorretos";
+                    ErroSenha.setText(erro1);
                     Toast.makeText(MainActivity.this, "Verifique os campos", Toast.LENGTH_SHORT).show();
                 }
-                    //senha errada
-                if (!editTextPass.getText().toString().equals("administrador") && !editTextPass.getText().toString().equals("henrique")) {
-                    String erro2 = "Senha incorreta";
-                    ErroSenha.setText(erro2);
+                    //Usuário errado
+                if (!editTextUser.getText().toString().equals("admin@admin") && editTextPass.getText().toString().equals("administrador")
+                        || !editTextUser.getText().toString().equals("hthenrique@email.com") && editTextPass.getText().toString().equals("henrique")){
+                    String erro3 = "Usuário e/ou senha incorretos";
+                    ErroSenha.setText(erro3);
                     Toast.makeText(MainActivity.this, "Verifique os campos", Toast.LENGTH_SHORT).show();
                 }
                     //Minimo de caracteres na senha
