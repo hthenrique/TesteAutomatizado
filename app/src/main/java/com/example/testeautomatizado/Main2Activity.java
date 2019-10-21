@@ -6,8 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.webkit.WebView;
 
 public class Main2Activity extends AppCompatActivity {
+
+    private WebView myWebview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +18,12 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+
+
+        myWebview = (WebView) findViewById(R.id.webview);
+        myWebview.getSettings().setJavaScriptEnabled(true);
+        myWebview.getSettings().setAppCacheEnabled(true);
+        myWebview.loadUrl("https://www.google.com");
     }
 
     @Override
