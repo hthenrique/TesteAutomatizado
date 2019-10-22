@@ -5,53 +5,37 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
 
 import com.example.testeautomatizado.webview.WebviewClientImpl;
 
-public class Main2Activity extends AppCompatActivity {
+public class OwaspActivity extends AppCompatActivity {
 
     private WebView myWebview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_owasp);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         //getSupportActionBar().hide();
 
-        myWebview = findViewById(R.id.webview);
+        myWebview = findViewById(R.id.owasp_webview);
         WebviewClientImpl webviewClient = new WebviewClientImpl(this);
         myWebview.setWebViewClient(webviewClient);
         myWebview.getSettings().setJavaScriptEnabled(true);
-        myWebview.getSettings().setAppCacheEnabled(true);
-        myWebview.loadUrl("https://www.google.com");
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if ((keyCode == KeyEvent.KEYCODE_BACK) && myWebview.canGoBack()){
-            myWebview.goBack();
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.webview_menu, menu);
-        return true;
+        String pdf = "https://www.owasp.org/images/b/b3/OWASP_SCP_v1.3_pt-BR.pdf";
+        myWebview.loadUrl("https://docs.google.com/viewer?url=" + pdf);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home: {
-                Intent home = new Intent(getApplicationContext(), MainActivity.class);
+                Intent home = new Intent(getApplicationContext(), AdminActivity.class);
                 startActivity(home);
                 break;
             }
@@ -67,9 +51,8 @@ public class Main2Activity extends AppCompatActivity {
                 myWebview.reload();
                 return true;
             }
-                default:break;
+            default:break;
         }
         return true;
     }
-
 }
