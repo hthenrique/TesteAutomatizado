@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -19,8 +20,8 @@ public class AdminActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         btn_owasp = findViewById(R.id.owasp_checklist);
         btn_owasp.setOnClickListener(new OnClickListener() {
@@ -33,14 +34,14 @@ public class AdminActivity extends AppCompatActivity {
     }
 
 
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case android.R.id.home:
+            case android.R.id.home:{
                 Intent home = new Intent (getApplicationContext(), MainActivity.class);
                 startActivity(home);
                 break;
+            }
                 default:break;
         }
         return true;
